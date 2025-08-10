@@ -14,7 +14,7 @@ export function PlannerView() {
     <div className="grid grid-cols-3 gap-3 h-full">
       {grouped.map(g => (
         <div key={g.col} className="rounded-2xl border p-3 bg-slate-50/50 dark:bg-slate-900/30 overflow-auto">
-          <div className="font-semibold mb-2">{g.col.title()}</div>
+         <div className="font-semibold mb-2">{capitalize(g.col)}</div>
           <div className="space-y-2">
             {g.items.map(e => (
               <div key={e.id} className="rounded-xl border p-2 bg-white dark:bg-slate-800">
