@@ -1,6 +1,7 @@
 
 import { useEventStore } from '../features/events/store'
 import { useMemo } from 'react'
+import { capitalize } from '../lib/text'
 
 const columns = ['backlog','planned','done'] as const
 
