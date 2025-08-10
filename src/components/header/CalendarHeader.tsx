@@ -3,6 +3,7 @@ import { addDays, addMonths, subDays, subMonths } from 'date-fns'
 import { Button } from '../ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useSettingsStore } from '../../features/settings/store'
+import { capitalize } from '../../lib/text'
 
 export function CalendarHeader({
   view, onViewChange, current, onNavigate, rangeLabel
@@ -23,9 +24,11 @@ export function CalendarHeader({
       </div>
       <div className="text-xl font-semibold ml-2">{rangeLabel}</div>
       <nav className="ml-4 flex gap-1" aria-label="Views">
-        {(['day','week','month','agenda','planner'] as const).map(v => (
-          <Button key={v} aria-pressed={view===v} onClick={() => onViewChange(v)}>{v.title()}</Button>
-        ))}
+       {(['day','week','month','agenda','planner'] as const).map(v => (
+  <Button key={v} aria-pressed={view===v} onClick={() => onViewChange(v)}>
+    {capitalize(v)}
+  </Button>
+))}
       </nav>
       <div className="ml-auto flex items-center gap-2">
         <select aria-label="Theme" className="rounded-2xl border px-2 py-1 text-sm" value={theme} onChange={e=>setTheme(e.target.value as any)}>
